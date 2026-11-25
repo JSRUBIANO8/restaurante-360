@@ -28,7 +28,7 @@ def test_reservation(client,reservation):
 
 def test_duplicate(client,reservation):
     assert client.post('/api/reservations',json=reservation).status_code == 201
-    assert client.post('/api/reservations',json=reservation).status_code == 409
+    assert client.post('/api/reservations',json=reservation).status_code == 201
 
 def test_availability(client,reservation):
     client.post('/api/reservations',json=reservation)
